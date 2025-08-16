@@ -8,9 +8,11 @@
     "server": "json-server --watch server.json --port 3333"
   },
   "dependencies": {
-    "json-server": "^1.0.0-alpha.21"
+    "json-server": "^1.0.0-alpha.21",
+    "style-loader": "^3.3.3"
   },
   "devDependencies": {
+    "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.6.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
