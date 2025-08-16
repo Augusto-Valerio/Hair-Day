@@ -80,3 +80,14 @@
 .schedule-period ul li strong {
   margin-right: 1.25rem;
 }
+
+@media (max-width: 1100px) {
+  .schedule {
+    grid-area: schedule;
+    padding: 1.5rem;
+  }
+
+  .schedule > header {
+    flex-direction: column;
+  }
+}
