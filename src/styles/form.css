@@ -86,3 +86,57 @@
 .button:hover {
   background-color: #dbc170;
 }
+
+.hours {
+  list-style: none;
+
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 2rem;
+}
+
+.hour {
+  width: 4.87rem;
+  height: 2.5rem;
+
+  border-radius: 0.5rem;
+
+  font-size: 1rem;
+  border: 1px solid #3e3c41;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hour-period {
+  width: 100%;
+  color: #98959d;
+  font-size: 0.87rem;
+
+  margin-top: 0.75rem;
+}
+
+.hour-available {
+  background-color: #2e2c30;
+}
+
+.hour-unavailable {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+.hour-selected {
+  border: 1px solid #b8952e;
+  color: #b8952e;
+}
+
+.hour:not(.hour-unavailable):hover {
+  border: 1px solid #b8952e;
+  color: #b8952e;
+}
