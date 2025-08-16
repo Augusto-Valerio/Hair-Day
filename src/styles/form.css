@@ -87,6 +87,11 @@
   background-color: #dbc170;
 }
 
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  background: url("../assets/arrow-down.svg") no-repeat;
+}
+
 .hours {
   list-style: none;
 
