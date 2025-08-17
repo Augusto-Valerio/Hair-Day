@@ -1,51 +1,53 @@
-import dayjs from "dayjs"
+import dayjs from "dayjs";
 
-const form = document.querySelector("form")
-const clientName = document.getElementById("client")
-const selectDate = document.getElementById("date")
+import { scheduleNew } from "../../services/schedule-new.js";
+
+const form = document.querySelector("form");
+const clientName = document.getElementById("client");
+const selectDate = document.getElementById("date");
 
 // Date atual para formatar o input
-const inputToday = dayjs(new Date()).format("YYYY-MM-DD")
+const inputToday = dayjs(new Date()).format("YYYY-MM-DD");
 
 // Carrega a data atual e define a data mínima como sendo a data atual.
-selectDate.value = inputToday
-selectDate.min = inputToday
+selectDate.value = inputToday;
+selectDate.min = inputToday;
 
-form.onsubmit = (event) => {
+form.onsubmit = async (event) => {
   // Previne o comportamento padrão de carregar a página.
-  event.preventDefault()
+  event.preventDefault();
 
   try {
     // Recuperando o nome do cliente.
-    const name = clientName.value.trim()
+    const name = clientName.value.trim();
 
     if (!name) {
-      return alert("Informe o nome do cliente!")
+      return alert("Informe o nome do cliente!");
     }
 
     // Recupera o horário selecionado.
-    const hourSelected = document.querySelector(".hour-selected")
+    const hourSelected = document.querySelector(".hour-selected");
 
     if (!hourSelected) {
-      return alert("Selecione a hora.")
+      return alert("Selecione a hora.");
     }
 
     // Recupera somente a hora
-    const [hour] = hourSelected.innerText.split(":")
-    
-    // Insere a hora na data
-    const when = dayjs(selectDate.value).add(hour, "hour")
-    
-    // Gera um ID
-    const id = new Date().getTime()
+    const [hour] = hourSelected.innerText.split(":");
 
-    console.log({
+    // Insere a hora na data
+    const when = dayjs(selectDate.value).add(hour, "hour");
+
+    // Gera um ID
+    const id = new Date().getTime();
+
+    await scheduleNew({
       id,
       name,
       when,
-    })
+    });
   } catch (error) {
-    alert("Não foi possível realizar o agendamento.")
-    console.log(error)
+    alert("Não foi possível realizar o agendamento.");
+    console.log(error);
   }
-}
+};

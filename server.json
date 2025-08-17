@@ -1,3 +1,9 @@
 {
-  "schedules": []
+  "schedules": [
+    {
+      "id": 1755472486418,
+      "name": "Lucas Martins",
+      "when": "2025-08-18T00:00:00.000Z"
+    }
+  ]
 }
